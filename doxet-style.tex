@@ -1,0 +1,69 @@
+% simple ConTeXt style sheet for doxet
+
+% begin filter pandoc #
+
+\usemodule[filter]
+
+\defineexternalfilter
+    [markdown]
+    [filtercommand={pandoc -t context -o \externalfilteroutputfile\space \externalfilterinputfile}]
+
+% SEE: https://github.com/adityam/filter/
+
+% end pandoc #
+
+\mainlanguage[en]
+
+\setuppapersize[A4][A4]
+
+%\setuplayout[location=middle,marking=off,topspace=1cm,height=fit,width=17cm,header=1cm,footer=1cm]
+
+%\setuppagenumbering[location={footer,middle}]
+
+\definefontfeature[default][default][mode=node,expansion=quality,protrusion=pure]
+
+\setupalign[hanging,hz]
+
+\usetypescriptfile[type-gyr]
+
+\definetypeface[mainface][rm][serif][palatino][default]
+\definetypeface[mainface][ss][sans][iwona][default]
+\definetypeface[mainface][tt][mono][modern][default][rscale=1.1]
+
+\setupbodyfont[mainface,12pt]
+
+\setuphead [chapter]      [style=\ss\bfd,color=blue]%\bfd
+\setuphead [section]      [style=\ss\bfc,color=blue]%\bfc
+\setuphead [subsection]   [style=\ss\bfb,color=blue]%\bfb
+\setuphead [subsubsection][style=\ss\bfa,color=blue]%\bfa
+
+%\setupitemize[each][packed]
+
+\setupwhitespace[small]
+
+% double space
+%\setupinterlinespace[line=5.6ex]
+
+% 1/2 inch indents
+%\setupindenting[0.5in]
+
+% jagged-right (aligned to the left)
+%\setupalign[right]
+
+% from luatex reference manual
+
+\setupinteraction
+  [state=start,
+   focus=standard, 
+   color=,
+   contrastcolor=]
+
+\placebookmarks
+  [chapter,section,subsection]
+
+\setuplist
+  [chapter,section,subsection,subsubsection]
+   [interaction=all]
+
+% bookmarks opening by default
+% \setupinteractionscreen[option=bookmark]
