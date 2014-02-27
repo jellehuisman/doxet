@@ -10,3 +10,5 @@ targs := mytestdocument
 export: 
 	pandoc --from=markdown --to=odt $(targs).md --output=$(targs).odt
 	context --purgeall
+	rm -f *.md.tex
+	rm -f *.synctex.gz
