@@ -5,7 +5,7 @@
 .PHONY: all
 all: export
 
-targs := mytestdocument
+targs := doxet-test
 
 export: 
 	pandoc --from=markdown --to=odt $(targs).md --output=$(targs).odt
