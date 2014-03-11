@@ -4,7 +4,7 @@
 
 ### about
 
-This is a simple framework for producing documents. Nothing fancy, feel free to imporve.
+This is a simple framework for producing documents. Nothing fancy, feel free to improve.
 
 ### usage
 
