@@ -1,0 +1,28 @@
+% make docs with doxet-report-maker
+
+%%% [1] Set variables
+
+\def\reporttitle{A test report. Fancy title needed}
+\def\reportauthor{Athor Name}
+\def\reportcontact{author@name.org}
+\def\reportcopyright{\hw cban}% cc-by-sa-nc
+
+%%% [2] Change name of this file
+
+\input doxet-style
+
+\starttext
+
+%\prestuff
+\title{\reporttitle}
+%\prestuff
+
+\processmarkdownfile{README.md}
+
+\processmarkdownfile{doxet-test.md}
+
+%\poststuff
+\colophon
+%\poststuff
+
+\stoptext
