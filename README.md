@@ -1,4 +1,4 @@
-# doxet
+# doxet readme
 
 ## create documents with markdown context pandoc make
 
