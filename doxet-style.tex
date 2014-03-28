@@ -10,60 +10,60 @@
 
 % SEE: https://github.com/adityam/filter/
 
-% end pandoc #
+% end pandoc filter #
 
 \mainlanguage[en]
 
 \setuppapersize[A4][A4]
 
-%\setuplayout[location=middle,marking=off,topspace=1cm,height=fit,width=17cm,header=1cm,footer=1cm]
+\setuplayout[backspace=30mm,width=155mm,topspace=15mm,header=10mm,   footer=10mm,height=260mm]
 
-%\setuppagenumbering[location={footer,middle}]
+\setuppagenumbering[location={footer,right}]
 
 \definefontfeature[default][default][mode=node,expansion=quality,protrusion=pure]
-
 \setupalign[hanging,hz]
 
-\usetypescriptfile[type-gyr]
+\setupbodyfontenvironment[default][em=italic]
 
-\definetypeface[mainface][rm][serif][palatino][default]
-\definetypeface[mainface][ss][sans][iwona][default]
-\definetypeface[mainface][tt][mono][modern][default][rscale=1.1]
+% serif: Noto Serif, Kreon, Gentium Basic, Droid Serif
+% sans: Open Sans, Lato
+% mono: Inconsolata
+
+\def\myserif{Gentium Basic}
+\def\mysans{Open Sans}
+\def\mymono{Inconsolata}
+\def\myccicons{CC Icons}
+
+\definefontfamily[mainface][serif][\myserif]
+\definefontfamily[mainface][sans][\mysans]
+\definefontfamily[mainface][mono][\mymono]
+\definefontfamily[mainface][handwriting][\myccicons]
 
 \setupbodyfont[mainface,12pt]
 
-\setuphead [chapter]      [style=\ss\bfd,color=blue]%\bfd
-\setuphead [section]      [style=\ss\bfc,color=blue]%\bfc
-\setuphead [subsection]   [style=\ss\bfb,color=blue]%\bfb
-\setuphead [subsubsection][style=\ss\bfa,color=blue]%\bfa
+\setupinteraction[state=start,color=darkblue,contrastcolor=darkblue]
 
-%\setupitemize[each][packed]
+\def\execsum#1{{\bTABLE[frame=off,background=color,backgroundcolor=lightgray] \bTR \bTD {\ss {#1}} \eTD \eTR \eTABLE\par \white{.}}}
 
-\setupwhitespace[small]
+% use sans headers
 
-% double space
-%\setupinterlinespace[line=5.6ex]
+\setuphead [chapter][style=\ssd,color=darkred]%dark,middle,light
+\setuphead [section][style=\ssc,color=middleblue]
+\setuphead [subsection][style=\ssb,color=middleblue]%lightgreen]
+\setuphead [subsubsection][style=\ssa,color=middleblue]%darkgray]
 
-% 1/2 inch indents
-%\setupindenting[0.5in]
+\setuphead [title][style=\ssd,color=middlered]%dark,middle,light
+\setuphead [subject][style=\ssc,color=middleblue]
+\setuphead [subsubject][style=\ssb,color=middleblue]%lightgreen]
+\setuphead [subsubsubject][style=\ssa,color=middleblue]%darkgray]
 
-% jagged-right (aligned to the left)
-%\setupalign[right]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% from luatex reference manual
-
-\setupinteraction
-  [state=start,
-   focus=standard, 
-   color=,
-   contrastcolor=]
-
-\placebookmarks
-  [chapter,section,subsection]
-
-\setuplist
-  [chapter,section,subsection,subsubsection]
-   [interaction=all]
-
-% bookmarks opening by default
-% \setupinteractionscreen[option=bookmark]
+% define colophon
+\def\colophon{
+\subsubject{Colophon}
+\ss{\bf author }\rm \reportauthor
+\\ \ss{\bf contact }\rm \reportcontact
+\\ \ss{\bf version }\rm  \date
+\\ \ss{\bf copyright }\rm { \reportcopyright }
+}
